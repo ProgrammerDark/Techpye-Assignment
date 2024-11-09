@@ -1,1 +1,27 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Budget Calculator</title>
+    <script>
+let income;
+let expense;
+let balance;
+income = parseFloat(prompt("Enter your income amount: "));
+expense = parseFloat(prompt("Enter your expense amount: "));
+balance = income - expense;
+console.log(`Income: $${income}`);
+console.log(`Expense: $${expense}`);
+console.log(`Balance: $${balance}`);
+if (balance >= 0) {
+    console.log("Your balance is positive.");
+} else {
+    console.log("Your balance is negative.");
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
