@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Budget calculator</title>
+    <script>
+      // Part 2: Enhanced Budget Tracker
+
+// Step 1: Declare arrays for incomes and expenses
+let incomes = [];
+let expenses = [];
+
+// Function to add an amount to either income or expense
+function addAmount(type, amount) {
+    if (!isNaN(amount) && amount > 0) {
+        if (type === 'income') {
+            incomes.push(amount);
+        } else if (type === 'expense') {
+            expenses.push(amount);
+        }
+    } else {
+        console.log("Invalid amount. Please enter a positive number.");
+    }
+}
+
+// Function to calculate the total of an array
+function calculateTotal(arr) {
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+        total += arr[i];
+    }
+    return total;
+}
+
+// Function to calculate and display the balance
+function calculateBalance() {
+    const totalIncome = calculateTotal(incomes);
+    const totalExpenses = calculateTotal(expenses);
+    const balance = totalIncome - totalExpenses;
+
+    console.log(`Total Income: $${totalIncome}`);
+    console.log(`Total Expenses: $${totalExpenses}`);
+    console.log(`Balance: $${balance}`);
+
+    if (balance >= 0) {
+        console.log("Your balance is positive.");
+    } else {
+        console.log("Your balance is negative.");
+    }
+}
+
+// Step 2: Input Flow for Income
+let incomeInput = prompt("Enter an income amount (or type 'done' to finish):");
+while (incomeInput.toLowerCase() !== "done") {
+    addAmount('income', parseFloat(incomeInput));
+    incomeInput = prompt("Enter another income amount (or type 'done' to finish):");
+}
+
+// Step 3: Input Flow for Expenses
+let expenseInput = prompt("Enter an expense amount (or type 'done' to finish):");
+while (expenseInput.toLowerCase() !== "done") {
+    addAmount('expense', parseFloat(expenseInput));
+    expenseInput = prompt("Enter another expense amount (or type 'done' to finish):");
+}
+
+// Step 4: Calculate and display the final balance
+calculateBalance();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
